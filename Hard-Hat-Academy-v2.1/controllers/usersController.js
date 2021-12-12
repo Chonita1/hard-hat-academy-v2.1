@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const Users = require('../models/users')
 
 
 const SERVER_URL = process.env.SERVER_URL || "localhost:3000"
@@ -8,9 +9,9 @@ const SERVER_URL = process.env.SERVER_URL || "localhost:3000"
 router.get('/register', (req, res) => {
     res.render('users/register.ejs')
 })
-router.post('/createoccupation', (req, res) => {
+router.post('/register', (req, res) => {
     req.sessionID('Check your terminal!')
-}
+})
 // //show a specific occupation
 // router.get('/explore/:id', (req, res) => {
 //     try{
