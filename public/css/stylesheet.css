@@ -1,0 +1,37 @@
+body {
+    background-color: lightblue;
+    text-align: center;
+}
+li {
+    display: inline-block;
+    list-style: none;
+    background-color: lavender;
+    padding: 15px;
+    margin: 15px;
+    border: 1px solid black;
+    border-top-left-radius: 1em 1em; /* rounded corners */
+    border-top-right-radius: 1em 1em; 
+    border-bottom-left-radius: 1em 1em;
+    border-bottom-right-radius: 1em 1em;
+}
+li a:hover {
+    background-color: #c29df0;
+}
+li a.active {
+    background-color: #7300ff;
+}
+
+div {
+    /* background-color: aliceblue; */
+    /* display: inline-block; */
+    padding: 8px;
+}
+img {
+    width:  500px;
+}
+button {
+    margin: 15px;
+}
+a {
+    color: black;
+}
