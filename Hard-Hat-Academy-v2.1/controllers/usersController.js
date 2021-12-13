@@ -20,14 +20,45 @@ router.post('/register', (req, res) => {
             res.send('That username is taken')
         } else {
             Users.create(req.body, (error, createUser) => {
-                res.send('user created')
+                res.redirect('/exploreoccupations')
             })
         }
 
 })
-router.get('/signin', (req, res) => {
+router.get('/login', (req, res) => {
+    res.render('users/login.ejs')
+})
+router.post('/login', (req, res) => {
+    // need to get the user with that username if they exist.
+    Users.findOne({username: req.body.username}, (error, foundUser))
+        if (foundUser) {
+         // if they do exist, need to compare their passwords
+         // compare passwords using bcrypt's compare sync   
+         const validLogin = bcrypt.compareSync(req.body.password, foundUser.password)
+         //compareSunc returns true if passwords match & false if they don't
+        // if the passwords match, log them in
+        if (validLogin) {
+            req.session.currentUser = foundUser
+            // this informs the session that a user is logged in
+            res.redirect('/exploreoccupations')
+        // if they don't match, send a message
+        } else {
+            // If they don't exist/match, send a message.
+            res.send('Invalid username or password')
+        }
+     }
     
 })
+// Destroy Session Route
+router.get('logut', (req, res) => {
+    req.session.destroy()
+    // This destroys the session
+    res.redirect('/exploreoccupations')
+})
+    
+
+
+
 //list/explore all occupations
 // //show a specific occupation
 // router.get('/explore/:id', (req, res) => {

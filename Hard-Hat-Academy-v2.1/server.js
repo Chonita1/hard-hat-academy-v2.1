@@ -1,5 +1,5 @@
-const express = require('express');
 require('dotenv').config()
+const express = require('express');
 const methodOverride = require('method-override')
 const SESSION_SECRET = process.env.SESSION_SECRET
 const session = require('express-session')

@@ -2,22 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User Registration</title>
+    <title>User Log In</title>
     <link rel="stylesheet" href="/css/stylesheet.css">
 </head>
 <body>
-    <h2>Register a New User</h2>
-    <form action="/register" method="POST">
+    <h1>Log In</h1>
+    <form action="/login" method="POST">
         <fieldset>
             <label for="username">Username:</label>
             <input type="text"name="username" id="username">
         </fieldset>   
         <label for="password">Password:</label>
         <input type="password" name="password" id="password">
-        <fieldset>
-           <label for="verifyPassword">Verify Password</label> 
-            <input type="password" name="verifyPassword" id="verifyPassword">
-        </fieldset>
         <input type="submit" value="Sign Up">
     </form>
 </body>
