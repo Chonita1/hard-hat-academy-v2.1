@@ -1,17 +1,34 @@
 const express = require('express')
 const router = express.Router()
 const Users = require('../models/users')
+const bcrypt = require('bcrypt')
 
 
 const SERVER_URL = process.env.SERVER_URL || "localhost:3000"
 
-//list/explore all occupations
+
 router.get('/register', (req, res) => {
     res.render('users/register.ejs')
 })
 router.post('/register', (req, res) => {
-    req.sessionID('Check your terminal!')
+    const salt = bcrypt.genSaltSync(10)
+    req.body.password = bcrypt.hashSync(req.body.password, salt)
+    console.log(req.body)
+    //check if another user already has this username
+    Users.findOne({username: req.body.useername}, (error, userExists))
+        if (userExists) {
+            res.send('That username is taken')
+        } else {
+            Users.create(req.body, (error, createUser) => {
+                res.send('user created')
+            })
+        }
+
 })
+router.get('/signin', (req, res) => {
+    
+})
+//list/explore all occupations
 // //show a specific occupation
 // router.get('/explore/:id', (req, res) => {
 //     try{
