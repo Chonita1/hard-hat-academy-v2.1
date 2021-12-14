@@ -10,17 +10,46 @@ const SERVER_URL = process.env.SERVER_URL || "localhost:3000"
 router.get('/register', (req, res) => {
     res.render('users/register.ejs')
 })
+router.get('/updateProfile', (req, res) => {
+    res.render('users/updateProfile.ejs')
+})
+router.put('/updateProfile', (req, res) => {
+    if(req.session.loggedIn) {
+        try {
+            Users.findByIdAndUpdate(req.params.id,
+                {                    
+                    summary: req.body.summary,
+                    currentOccupation: req.body.currentOccupation,
+                    careerGoals: req.body.careerGoals,
+                    pictureUrl: req.body.pictureurl,
+                    email: req.body.email,
+                    state: req.body.state
+                },  {new:true},
+                    (err, specificProfile) => {
+                    err ? res.send(err)
+                    : res.redirect('/' + req.params.id)
+                })    
+        }
+        catch (err) {
+            res.send(err.message)
+        }
+    } else {
+        res.redirect('/')
+    }
+})
+
+
 router.post('/register', (req, res) => {
     const salt = bcrypt.genSaltSync(10)
     req.body.password = bcrypt.hashSync(req.body.password, salt)
     console.log(req.body)
     //check if another user already has this username
-    Users.findOne({username: req.body.useername}, (error, userExists))
+    Users.findOne({username: req.body.username}, (error, userExists))
         if (userExists) {
             res.send('That username is taken')
         } else {
             Users.create(req.body, (error, createUser) => {
-                res.redirect('/exploreoccupations')
+                res.redirect('/')// redirecting to  homepage
             })
         }
 
@@ -50,7 +79,7 @@ router.post('/login', (req, res) => {
     
 })
 // Destroy Session Route
-router.get('logut', (req, res) => {
+router.get('logout', (req, res) => {
     req.session.destroy()
     // This destroys the session
     res.redirect('/exploreoccupations')
