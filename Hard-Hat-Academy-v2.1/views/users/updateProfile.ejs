@@ -9,30 +9,37 @@
     <h2>Tell Us About Yourself</h2>
     <form action="/updateProfile?_method=PUT" method="POST">
         <fieldset>
-            <!-- need a label and input for a summary here -->
             <label for="fname">First Name:</label>
-            <input type="text" name="fname" id="fname">
+            <input type="text" name="fname" id="fname" 
+            value="<%=specificProfileData.fname%>">                        
+            
             <label for="lname">Last Name:</label>
-            <input type="text" name="lname" id="lname">
+            <input type="text" name="lname" id="lname"
+            value="<%=specificProfileData.lname%>">                        
         </fieldset> 
         <fieldset>
             <label for="email">Email</label> 
-             <input type="email" name="email" id="email">
+             <input type="email" name="email" id="email"
+             value="<%=specificProfileData.email%>">
          </fieldset>
         <fieldset>
             <label for="summary">Describe Yourself in a Few Words</label> 
-             <input type="textarea" name="summary" id="summary">
+             <input type="textarea" name="summary" id="summary"
+             value="<%=specificProfileData.summary%>">
          </fieldset>
             <label for="currentOccupation">Current Occupation</label> 
-             <input type="text" name="currentOccupation" id="currentOccupation">
+             <input type="text" name="currentOccupation" id="currentOccupation"
+             value="<%=specificProfileData.currentOccupation%>">
          </fieldset>
         <fieldset>
             <label for="careerGoals">Career Goals</label> 
-             <input type="text" name="careerGoals" id="careerGoals">
+             <input type="text" name="careerGoals" id="careerGoals"
+             value="<%=specificProfileData.careerGoals%>">
          </fieldset>
         <fieldset>
             <label for="state">State</label> 
-             <input type="text" name="state" id="state">
+             <input type="text" name="state" id="state"
+             value="<%=specificProfileData.state%>">
          </fieldset>
         <!-- <fieldset> -- I DON'T KNOW HOW TO ALLOW USERS TO UPLOAD PHOTO - SKIP???
             <label for="pictureUrl">"Add a Picture"</label> 
