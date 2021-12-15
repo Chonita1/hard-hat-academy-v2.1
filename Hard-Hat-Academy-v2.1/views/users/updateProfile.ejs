@@ -7,9 +7,38 @@
 </head>
 <body>
     <h2>Tell Us About Yourself</h2>
-    <form action="/updateProfile" method="PUT">
+    <form action="/updateProfile?_method=PUT" method="POST">
         <fieldset>
             <!-- need a label and input for a summary here -->
-            <label for="name">Name:</label>
-            <input type="text"name="name" id="name">
+            <label for="fname">First Name:</label>
+            <input type="text" name="fname" id="fname">
+            <label for="lname">Last Name:</label>
+            <input type="text" name="lname" id="lname">
         </fieldset> 
+        <fieldset>
+            <label for="email">Email</label> 
+             <input type="email" name="email" id="email">
+         </fieldset>
+        <fieldset>
+            <label for="summary">Describe Yourself in a Few Words</label> 
+             <input type="textarea" name="summary" id="summary">
+         </fieldset>
+            <label for="currentOccupation">Current Occupation</label> 
+             <input type="text" name="currentOccupation" id="currentOccupation">
+         </fieldset>
+        <fieldset>
+            <label for="careerGoals">Career Goals</label> 
+             <input type="text" name="careerGoals" id="careerGoals">
+         </fieldset>
+        <fieldset>
+            <label for="state">State</label> 
+             <input type="text" name="state" id="state">
+         </fieldset>
+        <!-- <fieldset> -- I DON'T KNOW HOW TO ALLOW USERS TO UPLOAD PHOTO - SKIP???
+            <label for="pictureUrl">"Add a Picture"</label> 
+             <input type="url" name="pictureUrl" id="pictureurl">
+         </fieldset> -->
+        <input type="submit" value="Update Profile">
+    </form>
+</body>
+</html>

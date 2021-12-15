@@ -7,8 +7,9 @@ const bodyParser = require('body-parser')
 const expertsController = require('./controllers/expertsController')
 const usersController = require('./controllers/usersController')
 const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const auth = require('../middleware/auth')
+// const cors = require('cors')
+// const jwt = require('jsonwebtoken')
+// const auth = require('../middleware/auth')
 //async recommended in bcrypt documentation
 
 // const saltRounds - someOtherPlain... not part of GA lesson
@@ -53,7 +54,7 @@ db.on('error', (error) => {
 
 // middleware
 app.use(methodOverride('_method'))
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(session({

@@ -2,4 +2,4 @@ This is version 2 of the Hard Hat Academy app. This app is aimed at youth and ad
 
 This app was developed with javascript, express, node.js, mongoDB, and css.
 
-You can view the app at: https://hard-hat-academy-v2.herokuapp.com/
+You can view the app at: https://hard-hat-academy-v2.1herokuapp.com/

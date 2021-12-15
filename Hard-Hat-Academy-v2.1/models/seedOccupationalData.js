@@ -111,7 +111,7 @@ module.exports = [
                 name: "Noah Dean",
                 occupation: "Lead Solar Installer",
                 profile: "Noah works with a great team of dedicated Solar Installers. He says typically there is minimal interaction with the customer; usually at the beginning and the end of the job. You have to work well with a team and while you can't be afraid of heights to work on roofs, a healthy respect for heights will keep you safe.",
-                pictureUrl:  "../expert_images/Elevator&EscalatorInstallers.jpg",
+                pictureUrl:  "../expert_images/SolarInstallers.jpg",
                 email: "ndeana@hardhatacademy.com",
                 phone: "919-555-1212",
                 zipcode: "28429",

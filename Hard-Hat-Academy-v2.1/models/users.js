@@ -5,7 +5,8 @@ const mongoose = require('mongoose')
 
 //creates a shorthand for mongoose
 const usersSchema = new mongoose.Schema ({
-    name: {type: String, required: true},
+    fname: {type: String, required: true},
+    lname: {type: String, required: true},
     username: {type: String, required: true, unique: true},
     password: {type: String, required: true, minlength: 8},
     summary: {type: String},
@@ -18,4 +19,4 @@ const usersSchema = new mongoose.Schema ({
 {collection: 'Users'},
 {timestamps: true}
 )
-module.exports = usersSchema
+module.exports = mongoose.model('Users', usersSchema)

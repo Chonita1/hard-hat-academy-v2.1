@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View My Profile</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body>
+    <h1>View My Profile</h1>
+    
+    <h1> <%= specificProfileData.fname %></h1>
+    <h1> <%= specificProfileData.lname %></h1>
+    <h1> <%= specificProfileData.summary %></h1>
+    <h1> <%= specificProfileData.currentOccupation %></h1>
+    <h1> <%= specificProfileData.careerGoals %></h1>
+    <h1> <%= specificProfileData.state %></h1>
+    <h1> <%= specificProfileData.email %></h1>
+
+    
+    <a href="/">Back to Home Page</a>
+    <h1><%=specificProfileData.fname%></h1>
+    <div>
+        <p>Meet <%=specificProfileData.fname%></p>
+
+            <a href="/users/updateprofile">Update Your Profile</a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+            <div> 
+                <p>
+                    <a href="/exploreoccupations">Back to Homepage</a> 
+                </p>
+            </div>
+    
+</body>
+</html>
