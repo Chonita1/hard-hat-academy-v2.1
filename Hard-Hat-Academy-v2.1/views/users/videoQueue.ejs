@@ -2,13 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Up Your Profile</title>
+    <title>Your Video Queue</title>
     <link rel="stylesheet" href="/css/stylesheet.css">
 </head>
 <body>
-    <h2>Tell Us About Yourself</h2>
-
-
+    <h2>Save Videos to Your Video Queue</h2>
+    <h1> <%= specificProfileData.fname %></h1>
+    <h1> <%= specificProfileData.lname %></h1>
+    
+    <ul class="videos">
+        <%for (let i = 0; i < videoArray.length; i++) {%>
+            <li>
+                <%console.log(videoArray[i].name) %>
+                <a href='<%= videoArray[i].videoUrl %>' ><%= videoArray[i].name %></a>
+            </li>      
+      <%  } %>
+    </ul> 
+    
+    <a href="/">Back to Home Page</a>
+    
+    
 
 
 </body>

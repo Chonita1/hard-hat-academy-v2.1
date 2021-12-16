@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const videoQueue = require('../models/videoQueue')
 
-router.get('/users/updatequeue', (req, res) => {
+router.put('/users/addvideo', (req, res) => {
     if(req.session.currentUser) {
         try{
             Users.findOneAndUpdate({username: req.session.currentUser.username},
@@ -27,4 +27,12 @@ router.get('/users/updatequeue', (req, res) => {
     } else {
         res.redirect('/')
     }
+})
+
+router.get('/users/showqueue', (req, res) => {
+
+})
+
+router.put('/users/deletevideo', (req, res) => {
+
 })
