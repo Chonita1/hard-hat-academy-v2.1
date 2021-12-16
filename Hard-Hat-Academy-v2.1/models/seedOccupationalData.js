@@ -36,7 +36,7 @@ module.exports = [
     {
         title: "CAD Operator",
         description: "CAD operators use Computer-Aided Design (CAD) software to create drawings and blueprints for a variety of products and buildings.",
-        training: "An associate degree or certificate program in Computer-Aided Design and Drafting (CADD) ",
+        training: "An associate degree or certificate program in Computer-Aided Design and Drafting (CAD)",
         wage: "Median annual salary is $48,000",
         videoUrl: "https://www.youtube.com/embed/C8L0xQ4MLrc",
         expert: {

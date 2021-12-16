@@ -129,7 +129,30 @@ router.get('/users/logout', (req, res) => {
 })
     
 
-
+router.delete('/users/cancelreg', (req, res) => {
+    if(req.session.currentUser) {
+        try {
+            Users.findOneAndDelete({username: req.session.currentUser.username},
+                (err) => {
+                    if(err) {
+                        res.send(err)
+                    } else {
+                        VideoQueue.findOneAndDelete({username: req.session.currentUser.username},
+                            (err) => {
+                                err ? res.send(err)
+                                : res.redirect('/')
+                        })
+                    }
+                }
+            )
+        }               
+        catch (err) {
+            res.send(err.message)
+        }
+    } else {
+        res.redirect('/')
+    }
+})
 
 
 module.exports = router 

@@ -28,11 +28,17 @@
     <br>
     <br>
     <br>
-            <div> 
-                <p>
-                    <a href="/exploreoccupations">Back to Homepage</a> 
-                </p>
-            </div>
+   
+    <p>Cancel Registration</p>
     
+    <form name="cancelreg" action="/users/cancelreg?_method=DELETE" method='POST'>
+        <a href="javascript:document.cancelreg.submit()">Cancel Your Registration</a>
+    </form>
+    
+    <div> 
+        <p>
+            <a href="/exploreoccupations">Back to Homepage</a> 
+        </p>
+    </div>
 </body>
 </html>
