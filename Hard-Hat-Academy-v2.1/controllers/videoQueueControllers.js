@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const VideoQueue = require('../models/videoQueue')
 
+// TODO In the next version will refactor code to router.put
 router.get('/users/addvideo/:name/:videourl', (req, res) => {
     if(req.session.currentUser) {
         try{
@@ -50,21 +51,12 @@ router.get('/users/showqueue', (req, res) => {
         res.redirect('/')
     }
 })
-
+// TODO In the next version will refactor code to router.put
 router.get('/users/deletevideo/:name/:videourl', (req, res) => {
         if(req.session.currentUser) {
             try{
                 VideoQueue.findOneAndUpdate({username: req.session.currentUser.username},
                 {   
-                    
-                // exports.destroyLink = function(req, res) {
-                // Node.findByIdAndUpdate(
-                //     req.params.id, { $pull: { "configuration.links": { _id: req.params.linkId } } }, { safe: true, upsert: true },
-                //     function(err, node) {
-                //         if (err) { return handleError(res, err); }
-                //         return res.status(200).json(node.configuration.links);
-                //     });
-                // };
                  
                     $pull: {
                         videoQueue: {
@@ -88,30 +80,3 @@ router.get('/users/deletevideo/:name/:videourl', (req, res) => {
     })
     
 module.exports = router 
-
-
-
-        // Added 12/16
-//     Users.findByIdAndDelete({username: req.session.currentUser.username},
-//         {                    
-//             $push: {
-//                 queue: {
-//                     name: "Welding",
-//                     videoUrl: "https://www.youtube.com/embed/qggvdb8_xB8",
-
-//                 }
-//             }
-//         },
-//             {new:true},
-//             (err, userQueue) => {
-//                 err ? res.send(err)
-//                 : res.redirect('/')
-//             })
-//     }
-//     catch (err) {
-//         res.send(err.message)
-//     }
-//     } else {
-//         res.redirect('/')
-//     }
-// })
