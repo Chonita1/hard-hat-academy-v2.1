@@ -1,18 +1,22 @@
 const mongoose = require('mongoose')
 
+// revised userSchema - removed required from careerGoals & desirecOccupation
+// because some users will be early in career exploration/undecided
 
 //creates a shorthand for mongoose
 const usersSchema = new mongoose.Schema ({
-    name: {type: String, required: true},
-    profile: {type: String, required: true},
-    currentOccupation: {type: String, required: true},
-    careerGoals: {type: String, required: true},
+    fname: {type: String, required: true},
+    lname: {type: String, required: true},
+    username: {type: String, required: true, unique: true},
+    password: {type: String, required: true, minlength: 8},
+    summary: {type: String},
+    currentOccupation: {type: String},
+    careerGoals: {type: String},
     email: {type: String, required: true, unique: true},
-    zipcode: {type: String, required: true},
-    state: {type: String, required: true},
-    pictureUrl: {type: String, required: true, unique: true},
-    desiredOccupation: {type: String, required: true}
+    state: {type: String},
+    pictureUrl: {type: String}
 },
-{ collection: 'Users'}
+{collection: 'Users'},
+{timestamps: true}
 )
-module.exports = usersSchema
+module.exports = mongoose.model('Users', usersSchema)

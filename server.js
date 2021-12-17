@@ -1,9 +1,22 @@
-const express = require('express');
 require('dotenv').config()
+const express = require('express');
 const methodOverride = require('method-override')
+const SESSION_SECRET = process.env.SESSION_SECRET
 const session = require('express-session')
 const bodyParser = require('body-parser')
 const expertsController = require('./controllers/expertsController')
+const usersController = require('./controllers/usersController')
+const videoQueueControllers = require('./controllers/videoQueueControllers')
+const bcrypt = require('bcrypt')
+// const cors = require('cors')
+// const jwt = require('jsonwebtoken')
+// const auth = require('../middleware/auth')
+//async recommended in bcrypt documentation
+
+// const saltRounds - someOtherPlain... not part of GA lesson
+// const saltRounds = 10;
+// const myPlaintextPassword = 's0/\/\P4$$w0rD';
+// const someOtherPlaintextPassword = 'not_bacon';
 
 
 // we required express up above now we need to call our app
@@ -42,16 +55,29 @@ db.on('error', (error) => {
 
 // middleware
 app.use(methodOverride('_method'))
+// app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(session({
     secret:'Admin Only', name:'adminSessionID', saveUninitialized:false
 }))
+// This is from GA - do I need both Admin Only and this one?
+app.use(
+    session({
+        secret: SESSION_SECRET,
+        resave: false,
+        saveUnitialized: false,
+    })
+)
+
 
 // for ejs templates
 app.set('view engine', 'ejs');
 
 app.use('/', expertsController)
+app.use('/', usersController)
+app.use('/', videoQueueControllers)
+
 
 app.get('/', (req, res) => {
     res.redirect('/exploreoccupations')

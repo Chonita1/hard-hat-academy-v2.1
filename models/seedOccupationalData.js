@@ -36,7 +36,7 @@ module.exports = [
     {
         title: "CAD Operator",
         description: "CAD operators use Computer-Aided Design (CAD) software to create drawings and blueprints for a variety of products and buildings.",
-        training: "An associate degree or certificate program in Computer-Aided Design and Drafting (CADD) ",
+        training: "An associate degree or certificate program in Computer-Aided Design and Drafting (CAD)",
         wage: "Median annual salary is $48,000",
         videoUrl: "https://www.youtube.com/embed/C8L0xQ4MLrc",
         expert: {
@@ -111,7 +111,7 @@ module.exports = [
                 name: "Noah Dean",
                 occupation: "Lead Solar Installer",
                 profile: "Noah works with a great team of dedicated Solar Installers. He says typically there is minimal interaction with the customer; usually at the beginning and the end of the job. You have to work well with a team and while you can't be afraid of heights to work on roofs, a healthy respect for heights will keep you safe.",
-                pictureUrl:  "../expert_images/Elevator&EscalatorInstallers.jpg",
+                pictureUrl:  "../expert_images/SolarInstallers.jpg",
                 email: "ndeana@hardhatacademy.com",
                 phone: "919-555-1212",
                 zipcode: "28429",

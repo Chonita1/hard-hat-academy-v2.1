@@ -1,6 +1,5 @@
-const mongoose = require('mongoose') 
+const mongoose = require('mongoose') // I DON'T WRITE THIS AGAIN, DO I?
 const Experts = require('./experts')
-const Users = require('./users')
 
 //creates a shorthand for mongoose
 // created the occupational schema for occupational title,training required, avg wage, 
