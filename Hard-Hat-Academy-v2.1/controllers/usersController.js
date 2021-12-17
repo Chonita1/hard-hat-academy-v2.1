@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Users = require('../models/users')
 const bcrypt = require('bcrypt')
-const videoQueue = require('../models/videoQueue')
+const VideoQueue = require('../models/videoQueue')
 
 
 const SERVER_URL = process.env.SERVER_URL || "localhost:3000"
@@ -69,9 +69,13 @@ router.post('/users/register', (req, res) => {
                 res.send('That username is taken')
             } else {
                 Users.create(req.body, (error, createUser) => {
-                    VideoQueue.create({username: req.body.username}, (error,  createQueue)=> {
-                        res.redirect('/')
-                    })   
+                    if(error) {
+                        res.send(error)
+                    } else {
+                        VideoQueue.create({username: req.body.username}, (error,  createQueue)=> {
+                            res.redirect('/')
+                        })
+                    }   
                 })
                 
             }

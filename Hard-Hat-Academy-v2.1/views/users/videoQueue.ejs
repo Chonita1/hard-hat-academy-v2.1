@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/css/stylesheet.css">
 </head>
 <body>
-    <h2>Save Videos to Your Video Queue</h2>
+    <h2>View Your Saved Videos</h2>
     <h1> <%= specificProfileData.fname %></h1>
     <h1> <%= specificProfileData.lname %></h1>
     
@@ -15,14 +15,14 @@
             <li>
                 <%console.log(videoArray[i].name) %>
                 <a href='<%= videoArray[i].videoUrl %>' ><%= videoArray[i].name %></a>
-                <a href="/users/deletevideo/<%= specificOccupationalData.title %>/<%= specificOccupationalData.videoUrl %>">Remove From Queue</a>
+                <a href="/users/deletevideo/<%= videoArray[i].name %>/<%= encodeURIComponent(videoArray[i].videoUrl) %>">Remove From Queue</a>
             </li>      
       <%  } %>
     </ul> 
     
-    <div>
+    <!-- <div>
     <button> Add Video </button> 
-    </div>
+    </div> -->
     <!-- added this 12.16 - includes remove video button-->
     <!-- <iframe width="560" height="315" 
     src="<specificOccupationalData.videoUrl>" title="YouTube video player" 

@@ -6,6 +6,7 @@ const session = require('express-session')
 const bodyParser = require('body-parser')
 const expertsController = require('./controllers/expertsController')
 const usersController = require('./controllers/usersController')
+const videoQueueControllers = require('./controllers/videoQueueControllers')
 const bcrypt = require('bcrypt')
 // const cors = require('cors')
 // const jwt = require('jsonwebtoken')
@@ -75,6 +76,7 @@ app.set('view engine', 'ejs');
 
 app.use('/', expertsController)
 app.use('/', usersController)
+app.use('/', videoQueueControllers)
 
 
 app.get('/', (req, res) => {

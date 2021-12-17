@@ -2,21 +2,22 @@ const express = require('express')
 const router = express.Router()
 const VideoQueue = require('../models/videoQueue')
 
-router.put('/users/addvideo/:name/:videourl', (req, res) => {
+router.get('/users/addvideo/:name/:videourl', (req, res) => {
     if(req.session.currentUser) {
         try{
-            Users.findOneAndUpdate({username: req.session.currentUser.username},
+            VideoQueue.findOneAndUpdate({username: req.session.currentUser.username},
             {                    
                 $push: {
-                    queue: {
-                        name: req.params.name,
-                        videoUrl: req.params.videourl,
-                        hasWatched: false    
+                    videoQueue: {
+                        "name": req.params.name,
+                        "videoUrl": req.params.videourl,
+                        "hasWatched": false    
                     }
                 }
             },
             {new:true},
             (err, userQueue) => {
+                console.log(userQueue)
                 err ? res.send(err)
                 : res.redirect('/')
             })
@@ -36,8 +37,9 @@ router.get('/users/showqueue', (req, res) => {
             // ? is equal to if error then output error msg
             err ? res.send(err)
             // : is equal to else...
-            : res.render('videoQueue.ejs', {
-                videoArray: allVideos
+            : res.render('users/videoQueue.ejs', {
+                videoArray: allVideos.videoQueue,
+                specificProfileData: req.session.currentUser
             })
         })
         }
@@ -49,10 +51,10 @@ router.get('/users/showqueue', (req, res) => {
     }
 })
 
-router.put('/users/deletevideo', (req, res) => {
+router.get('/users/deletevideo/:name/:videourl', (req, res) => {
         if(req.session.currentUser) {
             try{
-                Users.findOneAndUpdate({username: req.session.currentUser.username},
+                VideoQueue.findOneAndUpdate({username: req.session.currentUser.username},
                 {   
                     
                 // exports.destroyLink = function(req, res) {
@@ -65,7 +67,7 @@ router.put('/users/deletevideo', (req, res) => {
                 // };
                  
                     $pull: {
-                        queue: {
+                        videoQueue: {
                             name: req.params.name,
                             videoUrl: req.params.videourl,  
                         }
@@ -85,7 +87,7 @@ router.put('/users/deletevideo', (req, res) => {
         }
     })
     
-
+module.exports = router 
 
 
 

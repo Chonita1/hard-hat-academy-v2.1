@@ -24,7 +24,7 @@
     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
     allowfullscreen></iframe>
     <br>
-    <a href="/users/addvideo/<%= specificOccupationalData.title %>/<%= specificOccupationalData.videoUrl %>">Add Video</a>
+    <a href="/users/addvideo/<%= specificOccupationalData.title %>/<%= encodeURIComponent(specificOccupationalData.videoUrl) %>">Add Video</a>
     <br>
     <br>
     <br>
