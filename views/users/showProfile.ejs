@@ -6,31 +6,28 @@
     <link rel="stylesheet" href="/css/stylesheet.css">
 </head>
 <body>
-    <h1>View My Profile</h1>
-    
-    <h1> <%= specificProfileData.fname %></h1>
-    <h1> <%= specificProfileData.lname %></h1>
-    <h1> <%= specificProfileData.summary %></h1>
-    <h1> <%= specificProfileData.currentOccupation %></h1>
-    <h1> <%= specificProfileData.careerGoals %></h1>
-    <h1> <%= specificProfileData.state %></h1>
-    <h1> <%= specificProfileData.email %></h1>
-
-    
-    <a href="/">Back to Home Page</a>
-    <h1><%=specificProfileData.fname%></h1>
-    <div>
-        <p>Meet <%=specificProfileData.fname%></p>
-
-            <a href="/users/updateprofile">Update Your Profile</a>
+    <h1>My Profile</h1>
+    <div class="profilesummary">        
+        <h1> <%= specificProfileData.fname %></h1>
+        <h1> <%= specificProfileData.lname %></h1>
+        <h1> <%= specificProfileData.summary %></h1>
+        <h1> <%= specificProfileData.currentOccupation %></h1>
+        <h1> <%= specificProfileData.careerGoals %></h1>
+        <h1> <%= specificProfileData.state %></h1>
+        <h1> <%= specificProfileData.email %></h1>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-   
-    <p>Cancel Registration</p>
-    
+    <div>
+        <h3>
+        <a href="/users/updateprofile">Update Your Profile</a>
+        <br>
+    </div>
+    <a href="/">Back to Home Page</a>
+    <!-- <h1><%=specificProfileData.fname%></h1> -->
+        </h3>
+        <br>
+        <br>
+        <br>
+        <br>
     <form name="cancelreg" action="/users/cancelreg?_method=DELETE" method='POST'>
         <a href="javascript:document.cancelreg.submit()">Cancel Your Registration</a>
     </form>
