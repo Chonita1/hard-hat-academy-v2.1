@@ -12,9 +12,9 @@
     
     <ul class="videos">
         <%for (let i = 0; i < videoArray.length; i++) {%>
-            <li>
+            <li class="videosInList">
                 <%console.log(videoArray[i].name) %>
-                <a href='<%= videoArray[i].videoUrl %>' ><%= videoArray[i].name %></a>
+                <div video="<%= videoArray[i].videoUrl %>"><%= videoArray[i].name %></div>
                 <a href="/users/deletevideo/<%= videoArray[i].name %>/<%= encodeURIComponent(videoArray[i].videoUrl) %>">Remove From Queue</a>
             </li>      
       <%  } %>
@@ -24,21 +24,18 @@
     <button> Add Video </button> 
     </div> -->
     <!-- added this 12.16 - includes remove video button-->
-    <!-- <iframe width="560" height="315" 
-    src="<specificOccupationalData.videoUrl>" title="YouTube video player" 
+
+    <div id="video">
+    <iframe id="videoiframe" width="560" height="315" 
+    src="" title="YouTube video player" 
     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
     allowfullscreen></iframe>
+    </div>
     <br>
     <br>
     <br>
     <br>
-    <h4>Remove Video < specificOccupationalData.title></h4>
-    <form action='/deleteoccupation/<specificOccupationalData._id%>?_method=DELETE'
-        method='POST'>
-        <div> 
-            <button>Remove</button>
-        </div>
-    </form> -->
+    
 
 
 
@@ -50,6 +47,24 @@
     
     
 
-
+    <script>
+        /*rray.from(document.querySelectorAll('li a:first-child')).forEach(function(a) {alert(a.getAttribute('video'));})*/
+        Array.from(document.querySelectorAll('li div:first-child')).forEach(element => {
+            //console.log(element.getAttribute('video'))
+            element.addEventListener("click", changeiFrameSrc);
+        });
+        function changeiFrameSrc(e) {
+            let target = e.target;
+            console.log(target)
+            console.log(target.getAttribute('video'))
+            //document.getElementById('videoiframe').setAttribute('src', "'" + target.getAttribute('video') + "'");
+            //console.log(document.getElementById('videoiframe').getAttribute('src'));
+            document.querySelector('div#video').innerHTML = `
+                    <iframe id="videoiframe" width="560" height="315" 
+            src="` + target.getAttribute('video') + `" title="YouTube video player" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>`
+        }
+    </script>
 </body>
 </html>

@@ -14,7 +14,6 @@ const usersSchema = new mongoose.Schema ({
     careerGoals: {type: String},
     email: {type: String, required: true, unique: true},
     state: {type: String},
-    pictureUrl: {type: String}
 },
 {collection: 'Users'},
 {timestamps: true}

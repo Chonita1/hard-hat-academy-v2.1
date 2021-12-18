@@ -58,6 +58,11 @@ router.put('/updateProfile', (req, res) => {
 
 router.post('/users/register', (req, res) => {
     const salt = bcrypt.genSaltSync(10)
+    if (req.body.verifyPassword != req.body.password) {
+        res.status(400).send({
+            message: 'Passwords Do Not Match'
+        });
+    }
     req.body.password = bcrypt.hashSync(req.body.password, salt)
     console.log(req.body)
     //check if another user already has this username

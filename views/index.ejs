@@ -7,11 +7,14 @@
 </head>
 <body>
     <h1>Welcome to Hard Hat Academy!</h1>
-    <a href="/users/register">Register</a>
-    <a href="/users/login">Log In</a>
-    <a href="/users/logout">Log Out</a>
-    <a href="/users/showprofile">View Profile</a>
-    <a href="/users/showqueue">View Your Saved Videos</a>
+    <%if(userLoggedIn === false){%>
+        <a href="/users/register">Register</a>
+        <a href="/users/login">Log In</a>
+    <%}else{%>
+        <a href="/users/logout">Log Out</a>
+        <a href="/users/showprofile">View Profile</a>
+        <a href="/users/showqueue">View Your Saved Videos</a>
+    <%}%>
     <h2>Browse through our video list and find your passion!</h2>
    
     <h3>We Are the MasterClass for Good Paying Blue Collar Jobs!</h3>

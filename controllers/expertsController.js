@@ -15,7 +15,8 @@ router.get('/exploreoccupations', (req, res) => {
             // : is equal to else...
             : res.render('index.ejs', {
                 occupations: allOccupations,
-                loggedIn: req.session.loggedIn || false
+                loggedIn: req.session.loggedIn || false, 
+                userLoggedIn: req.session.currentUser || false
             })
         })
     }
